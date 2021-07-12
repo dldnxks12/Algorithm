@@ -63,11 +63,9 @@ def printNodes(start):
   while current.link != None:
     current = current.link   # 다음 Node로 이동 
     print(current.data, end ='')
-  print()
+  print()  
 
-  
-
-
+#### Node 삽입
 def inesrtNode(findData, insertData):
   global memory, head, pre, current 
 
@@ -76,7 +74,6 @@ def inesrtNode(findData, insertData):
   # 3. 마지막 Node로 삽입
 
   # 1. 첫 번째 Node로 삽입
-
   if head.data == findData:
     node = Node() 
     node.data = insertData
@@ -84,7 +81,6 @@ def inesrtNode(findData, insertData):
     head = node  # 해당 Node를 새로운 Head로 
 
   # 2. 중간 Node로 삽입
-
   current = head  # head 부터 순차적으로 
   while (current.data != None): 
     pre = current
@@ -96,12 +92,48 @@ def inesrtNode(findData, insertData):
       node.link = current
 
   # 3. 마지막 Node로 삽입
-
   node = Node()
   node.data = insertData
   current.link = node
   
+
+#### Node 삭제
+def deleteNode(deleteData):
+ gloabl memory , head, pre, current
+ 
+ # 1. 첫 번째 Node 삭제
+ # 2. 나머지 Node 삭제
+   
+ # 1. 첫 번째 Node 삭제
+ if (head.data = deleteData):
+  current = head
+  head = current.link # 새로운 head로
+  del(current) # 메모리에서 삭제 
+   
+ # 2. 나머지 Node 삭제 
+ current = head
+ while (current.data != None): # 삭제하려는 data가 있는 곳 까지 순회
+  pre = current 
+  current = current.link
+  if( current.data == deleteData):
+   pre.link = current.link
+   del(current)
+
+
+#### Node 검색
+
+def findNode(findData):  
+ 
+  current = head
+  while(current.data != None):
+   if(current.data == findData):
+    return current # 현재 Node 반환
+   else:    
+   current = current.link   
+  return None # 빈 Node 반환 
+   
   
+   
 memory = []
 head, pre, current = None, None, None # Linked List는 이전 노드로 돌아갈 수 없으므로, Head Node를 통해 재시작하도록 구현 
 
