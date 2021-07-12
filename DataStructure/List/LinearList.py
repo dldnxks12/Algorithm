@@ -1,5 +1,7 @@
 # 선형 리스트 
 
+# 물리적인 순서 O 개념적 순서 O
+
 katok = []
 
 def add_list(ss):
