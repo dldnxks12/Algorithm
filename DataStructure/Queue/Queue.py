@@ -9,21 +9,21 @@ FIFO
 '''
 
 def IsQueueFull():
-  
+  global front, rear, size, Queue
   if rear == size -1 :
     return True
   else:
     return False
 
 def IsQueueEmpty():
-  
+  global front, rear, size, Queue  
   if front == rear:
     return True
   else:
     return False
 
 def enQueue(data):
-  
+  global front, rear, size, Queue  
   if IsQueueFull():
     return 
   else:
@@ -31,7 +31,7 @@ def enQueue(data):
     Queue[rear] = data
 
 def deQueue():
-  
+  global front, rear, size, Queue  
   if IsQueueEmpty():
     return 
   else:
@@ -41,7 +41,7 @@ def deQueue():
     return data  
 
 def peek():
-
+  global front, rear, size, Queue
   if IsQueueEmpty():
       return 
   else:
