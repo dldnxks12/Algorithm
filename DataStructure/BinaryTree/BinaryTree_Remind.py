@@ -1,5 +1,3 @@
-# Remind Binary Tree
-
 # Binary Tree Node 정의
 
 class TreeNode():
@@ -95,6 +93,57 @@ while True:
         current = current.right
 
 # Binary Tree 삭제 -> 조금 더 신경 써야함
+
+'''
+삭제한 Node 위치에 따라 3가지 상황으로 나눈다.
+1. Leaf Node인 경우
+2. 왼쪽 또는 오른쪽 Child Node가 있는 경우
+3. 양쪽에 Child Node가 있는 경우 -> CH.10 재귀함수 때 다루자 
+
+'''
+
+deleteName = "마마무"
+parent = None
+
+current = root
+while True:
+    if deleteName == current.data:    
+        if current.left == None and current.right == None: # leaf Node
+            current.data = None 
+            del current
+            break
+        elif current.left == None and current.right != None: # 오른쪽에 자식 노드 
+            if parent.left == current: 
+                parent.left = current.right
+            else:
+                parent.left = current.left
+            del current            
+            break
+        elif current.left != None and current.right == None:
+            if parent.left == current:
+                parent.left = current.right
+            else:
+                parent.left = current.left
+            del current
+            break
+    elif deleteName > current.data:
+        if current.right == None:
+            print("Can't find data")
+            break
+        parent = current
+        current = current.right
+    else:
+        if current.left == None:
+            print("Can't find data")
+            break            
+        parent = current
+        current = current.left
+
+
+
+
+    
+
     
 
 
