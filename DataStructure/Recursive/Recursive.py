@@ -5,12 +5,8 @@ def Add(num):
         return 1
     else:        
         return num + Add(num-1)
-    
-
-#print(Add(10))
 
 # 두 수를 입력받고 두 숫자 사이 합계를 구하는 코드 
-
 def Add2(num, num2):
 
     if num <= num2:
@@ -24,8 +20,6 @@ def Add2(num, num2):
         else:
             return num + Add2(num -1, num2)
 
-#print(Add2(1, 3))
-
 # Factorial
 def factorial(num):
 
@@ -33,8 +27,6 @@ def factorial(num):
         return num
     else:
         return num*factorial(num-1)
-
-#print(factorial(3))
 
 # CountDown
 def CountDown(num):
@@ -53,8 +45,6 @@ def StarShape(number):
         StarShape(number-1)
         print("*"*number)
 
-#StarShape(5)        
-
 # Star Shape : High -> low            
 
 def StartShapeLH(n,number):
@@ -63,7 +53,6 @@ def StartShapeLH(n,number):
         StartShapeLH(n+1,number)
         print("*"*n)
         return         
-# StartShapeLH(1,5)
 
 # 구구단 1단 ~ 9단 
 def KK(dan):
@@ -75,8 +64,6 @@ def KK(dan):
     for i in range(9):
         print("{} x {} = {}".format(dan, i+1 ,(i+1)*dan))
 
-# KK(9)
-
 # 제곱수 
 def pow(x, n): # x의 n승 
     if n > 1:        
@@ -84,8 +71,7 @@ def pow(x, n): # x의 n승
     else:
         return x
 
-# 배열의 합 
-
+# 배열의 합 -> Again
 def ArraySum(Array,num):
     if num < len(Array)-1:
         return Array[num] + ArraySum(Array , num+1)
@@ -94,7 +80,18 @@ def ArraySum(Array,num):
 
 Array = [150,71,135,53,16]
 
-print(ArraySum(Array, 0))
+# 피보나치 -> Again
+def fibo(n): # 피보나치 An+2 = An + An+1
+
+    if n == 0 :
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibo(n-1) + fibo(n-2)
+
+
+    
 
 
 
