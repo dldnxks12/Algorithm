@@ -28,7 +28,6 @@ for i in array2D:
     for k in i:
         array1D.append(k)
 
-
 print(array1D)
 print(SelectionSort(array1D))
 
