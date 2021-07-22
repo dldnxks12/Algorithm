@@ -2,6 +2,8 @@
 
 Quick Sort와 Selection Sort의 성능 비교
 
+  - Quick Sort much better than Selection , Insertion Sort 
+
 '''
 
 
