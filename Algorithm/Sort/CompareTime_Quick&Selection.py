@@ -88,3 +88,28 @@ SelectionSort:  0.08668160438537598
 QuickSort:  6.365776062011719e-05
 SelectionSort:  2.029723644256592
 '''
+
+'''
+
+# Data 15000 
+
+Data15000 = [random.randint(1,20000) for i in range(15000)]
+
+start1 = time.time()
+QuickSort(Data15000)
+end1 = time.time()
+length1 = end1 - start1
+
+start2 = time.time()
+SelectionSort(Data15000)
+end2 = time.time()
+
+length2 = end2 - start2
+
+print("QuickSort: ", length1 )
+print("SelectionSort: ", length2 )
+
+# QuickSort:  5.9604644775390625e-05
+# SelectionSort:  17.647680044174194
+
+'''
