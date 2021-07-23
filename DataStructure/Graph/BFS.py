@@ -1,4 +1,5 @@
 '''
+
  BFS(넓이 우선 검색) : 비선형 구조의 데이터 검색
     - Graph 완전 탐색 방법 
         - 횡방향으로 탐색 
@@ -12,6 +13,7 @@
     1. root node에서 시작
     2. root node와 인접하며 방문하지 않았고, 큐에 저장되지 않는 Node를 Queue에 넣는다.
     3. Queue에서 Dequeue하여 가장 먼저 Queue에 저장된 노드를 방문한다.
+
 '''
 
 def enQueue(data):
@@ -51,7 +53,6 @@ def GraphViewer(G):
             print(G.graph[row][col], end = ' ')
         print('')
 
-
 def BFS(G):
     global Queue, front, rear, size
     current = 0 # Root node
@@ -59,28 +60,32 @@ def BFS(G):
     visitedVertex = []
     visitedVertex.append(current)
     
-    while front != rear:
+    for vertex in range(G.size):
+        if G.graph[current][vertex] != 0: # If Connected
+            if vertex in Queue:
+                continue
+            else:
+                enQueue(vertex)
+                
+    print(Queue)
+    for _ in Queue: # Queue에 있는 Vertex들을 대상으로 방문 실행        
+        current = deQueue() # vertex 
+        if current == 0 :
+            continue
+        visitedVertex.append(current)
         for vertex in range(G.size):
-            if G.graph[current][vertex] != 0: # If Connected
-                if vertex in Queue:
+            if G.graph[current][vertex] != 0: # 해당 Vertex와 연결된 Vertex 라면 
+                if vertex in Queue or vertex in visitedVertex: # 해당 Vertex가 이미 Queue에 들어있다면 
                     continue
                 else:
-                    enQueue(vertex)
-        for _ in Queue: # Queue에 있는 Vertex들을 대상으로 방문 실행        
-            current = deQueue() # vertex 
-            if current == 0 :
-                continue
-            visitedVertex.append(current)
-            for vertex in range(G.size):
-                if G.graph[current][vertex] != 0: # 해당 Vertex와 연결된 Vertex 라면 
-                    if vertex in Queue or vertex in visitedVertex: # 해당 Vertex가 이미 Queue에 들어있다면 
-                        continue
-                    else:
-                        enQueue(vertex) # 들어있지 않다면 Queue에 삽입               
-        
-    return visitedVertex
+                    enQueue(vertex) # 들어있지 않다면 Queue에 삽입 
+        print(Queue)                    
+        if front == rear:
+            return visitedVertex
     
 
+
+            
 G = Graph(10)
 
 G.graph[0][1] = 1;G.graph[0][2] = 1

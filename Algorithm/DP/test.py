@@ -1,14 +1,8 @@
 
-
-N = 1
-
-count = 0
-
-while N != 0:
-    N = N//10
-    count += 1
-
-print(count)
+arr = [1,2,3,4]
+arr2 = arr[:]
 
 
-print(122 // pow(10,2))
+arr2.remove(4)
+
+print(arr)
