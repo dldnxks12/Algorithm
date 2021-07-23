@@ -4,7 +4,7 @@
 - Dijkstra
 - Bellman Ford
 
-    * Before DP 
+    #### Before DP 
     - Brute Force
     - Greedy Alogrithm 
 
