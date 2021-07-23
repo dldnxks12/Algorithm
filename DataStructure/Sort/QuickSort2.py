@@ -1,5 +1,7 @@
 '''
 
+* Quick Sort : O( nlog(n) )
+
 QuickSort1 에서는 왼쪽 그룹과 오른쪽 그룹을 위한 별도의 배열을 생성해서 사용하였다.
 
 QuickSort2 에서는 원래 배열을 그대로 이용해본다
