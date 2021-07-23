@@ -1,5 +1,4 @@
 '''
-
     # 최단 경로 알고리즘 
     - Robot Navigation에도 자주 사용되는 알고리즘 (A* Algorithm와 비슷)
     - 하나의 시작 Node에서 나머지 모든 Node로의 최단 경로를 찾는다.
@@ -10,7 +9,6 @@
     3. Greedy Algorithm
 
     # Queue or Heap을 이용한 Dijkstra 구현도 추후 해볼 것 
-
 '''
 
 class Graph():
