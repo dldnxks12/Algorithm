@@ -51,11 +51,13 @@ for rows in range(size):
     print()
 
 
+# DFS 
+
 current = 0 # Vertex A
 stack = []
 visitedArray = []
 
-# A Vertex 입장
+# A Vertex 입장 -
 
 stack.append(current)
 visitedArray.append(current)
