@@ -12,7 +12,6 @@
     1. root node에서 시작
     2. root node와 인접하며 방문하지 않았고, 큐에 저장되지 않는 Node를 Queue에 넣는다.
     3. Queue에서 Dequeue하여 가장 먼저 Queue에 저장된 노드를 방문한다.
-
 '''
 
 def enQueue(data):
@@ -52,6 +51,7 @@ def GraphViewer(G):
             print(G.graph[row][col], end = ' ')
         print('')
 
+
 def BFS(G):
     global Queue, front, rear, size
     current = 0 # Root node
@@ -59,32 +59,28 @@ def BFS(G):
     visitedVertex = []
     visitedVertex.append(current)
     
-    for vertex in range(G.size):
-        if G.graph[current][vertex] != 0: # If Connected
-            if vertex in Queue:
-                continue
-            else:
-                enQueue(vertex)
-    #vertex Queue [0, 1, 6, 9, 0, 0, 0, 0, 0, 0]
-    print(Queue)
-    for _ in Queue: # Queue에 있는 Vertex들을 대상으로 방문 실행        
-        current = deQueue() # vertex 
-        if current == 0 :
-            continue
-        visitedVertex.append(current)
+    while front != rear:
         for vertex in range(G.size):
-            if G.graph[current][vertex] != 0: # 해당 Vertex와 연결된 Vertex 라면 
-                if vertex in Queue or vertex in visitedVertex: # 해당 Vertex가 이미 Queue에 들어있다면 
+            if G.graph[current][vertex] != 0: # If Connected
+                if vertex in Queue:
                     continue
                 else:
-                    enQueue(vertex) # 들어있지 않다면 Queue에 삽입 
-        print(Queue)                    
-        if front == rear:
-            return visitedVertex
+                    enQueue(vertex)
+        for _ in Queue: # Queue에 있는 Vertex들을 대상으로 방문 실행        
+            current = deQueue() # vertex 
+            if current == 0 :
+                continue
+            visitedVertex.append(current)
+            for vertex in range(G.size):
+                if G.graph[current][vertex] != 0: # 해당 Vertex와 연결된 Vertex 라면 
+                    if vertex in Queue or vertex in visitedVertex: # 해당 Vertex가 이미 Queue에 들어있다면 
+                        continue
+                    else:
+                        enQueue(vertex) # 들어있지 않다면 Queue에 삽입               
+        
+    return visitedVertex
     
 
-
-            
 G = Graph(10)
 
 G.graph[0][1] = 1;G.graph[0][2] = 1
@@ -98,3 +94,25 @@ GraphViewer(G)
 print(BFS(G))
 
 
+'''
+Graph Viewer
+
+0 1 1 0 0 0 0 0 0 0
+1 0 0 1 0 0 0 0 0 0
+1 0 0 1 0 0 0 0 0 0
+0 1 1 0 1 0 0 0 0 0
+0 0 0 1 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0
+[0, 1, 2, 0, 0, 0, 0, 0, 0, 0]
+[0, 0, 2, 3, 0, 0, 0, 0, 0, 0]
+[0, 0, 0, 3, 0, 0, 0, 0, 0, 0]
+[0, 0, 0, 0, 4, 0, 0, 0, 0, 0]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+[0, 1, 2, 3, 4] -> 방문 노드 
+
+'''
