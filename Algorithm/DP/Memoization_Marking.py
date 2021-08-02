@@ -32,11 +32,6 @@ def MakeMemo(maze, memoization):
             memoization[k][i] = maze[k][i] + max(memoization[k-1][i], memoization[k][i-1])
 
 def MakeMarking(memoization):
-
-    #memoization[0][0] = 0
-
-    # Route 표시하기
-    
     start = 1
     for i in range(1,5):
         for k in range(start,5): 
@@ -47,7 +42,8 @@ def MakeMarking(memoization):
             else:
                 memoization[i-1][k] = 0
 
-    memoization[4][4] = 0
+    memoization[0][0] = 0 # start
+    memoization[4][4] = 0 # end 
     printarr(memoization)
 
 maze = [
