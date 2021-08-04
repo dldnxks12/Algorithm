@@ -17,5 +17,8 @@ for i in arr:
     
 result = list(set(arr)-set(arr2))
 result.sort()
-print(result)
+
+for i in result:
+    print(i)
+    
 
